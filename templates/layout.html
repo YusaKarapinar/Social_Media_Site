@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/styles.css">
+    {% block css_files %}{% endblock css_files %}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <title>{% block page_title %}{% endblock page_title %}</title>
+</head>
+<body>
+    <div class="d-flex">
+        <div class="sidebar d-flex flex-column p-3">
+            <a href="#" class="nav-link d-flex align-items-center mb-3">
+                <i class="bi bi-person-circle me-2"></i>
+                <span>Profile</span>
+            </a>
+            <a href="#" class="nav-link d-flex align-items-center mb-3">
+                <i class="bi bi-camera-reels me-2"></i>
+                <span>Feed</span>
+            </a>
+            <a href="#" class="nav-link d-flex align-items-center mb-3">
+                <i class="bi bi-chat me-2"></i>
+                <span>Messages</span>
+            </a>
+            <a href="#" class="nav-link d-flex align-items-center mb-3">
+                <i class="bi bi-bell me-2"></i>
+                <span>Notifications</span>
+            </a>
+            <a href="#" class="nav-link d-flex align-items-center mb-3">
+                <i class="bi bi-gear me-2"></i>
+                <span>Settings</span>
+            </a>
+        </div>
+        <div class="content flex-grow-1 p-4">
+            <h1>Welcome!</h1>
+            <p>This is the main content area.</p>
+            {% block content %}{% endblock content %}
+        </div>
+    </div>
+      
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"></script>
+</body>
+</html>
+
