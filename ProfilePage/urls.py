@@ -1,9 +1,9 @@
-from django.contrib import admin
-from django.urls import  path
+# ProfilePage/urls.py
+from django.urls import path
 from . import views
 
+app_name = 'profile'  # URL ad alanını tanımlayın
+
 urlpatterns = [
-   
-    path('<str:ProfileName>',views.FindProfileByName,name='find_profile_by_name'),
-    path('',views.DefaultProfilePage,)
+    path('profile_page/', views.profile_page, name='profile_page'),
 ]

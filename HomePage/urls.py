@@ -1,7 +1,9 @@
-from django.contrib import admin
-from django.urls import  path
+# HomePage/urls.py
+from django.urls import path
 from . import views
 
+app_name = 'home'  # Ad alanını tanımlayın
 urlpatterns = [
-    path('',views.FeedPage),
+    path('', views.homepage, name='homepage'),
+        path('register/', views.register, name='register'),  # Kayıt sayfası
 ]

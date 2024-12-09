@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block page_title %}Profile{% endblock page_title %}
+
+{% block page_header %}Profile{% endblock page_header %}
+
+{% block page_description %}
+Manage your personal information and account settings.
+{% endblock page_description %}
+
+{% block content %}
+<h1>User Profile</h1>
+<ul class="list-group">
+    <li class="list-group-item"><strong>Username:</strong> {{ user_info.username }}</li>
+    <li class="list-group-item"><strong>Email:</strong> {{ user_info.email }}</li>
+    <li class="list-group-item"><strong>Bio:</strong> {{ user_info.bio }}</li>
+</ul>
+{% endblock content %}

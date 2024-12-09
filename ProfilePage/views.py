@@ -1,34 +1,29 @@
-from django.http import HttpResponse
-from django.shortcuts import render
 
-data = { 
-    "Friend1":"1 Friend",
-    "Friend2":"2 Friend",
-    "Friend3":"3 Friend",
-}
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
 
-
-
-# Create your views here.
-
-
-def FindProfileByName(req,ProfileName):
-    friend_html=""
-
-
-    friend_list=data.keys()
-    for friend in friend_list:
-        friend_html+=f"<div>{friend}<div><br>"
-    friend_html=f"<div>Arkadaş Listesi<div><br>{friend_html}<br>"
+@login_required(login_url='/login/')
+def profile_page(request):
+    user_info = {
+        'username': 'JohnDoe',
+        'email': 'john.doe@example.com',
+        'bio': 'Web Developer and Django Enthusiast',
+    }
+    return render(request, 'profile/profile_page.html', {'user_info': user_info})
 
 
 
-    
-
-
-    return render(req,'ProfilePage/index.html',{
-        'ProfileName':ProfileName,
-    })
-
-def DefaultProfilePage(req):
-    return render(req,'ProfilePage/index.html')
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Hesabınız başarıyla oluşturuldu, {username}!')
+            return redirect('login')  # Varsayılan giriş URL'si
+    else:
+        form = UserCreationForm()
+    return render(request, 'registration/register.html', {'form': form})
