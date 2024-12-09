@@ -1,18 +1,29 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock css_files %}
 
 {% block page_title %}Profile{% endblock page_title %}
 
-{% block page_header %}Profile{% endblock page_header %}
+{% block page_header %}My Profile{% endblock page_header %}
 
 {% block page_description %}
-Manage your personal information and account settings.
+View and manage your personal information and account settings.
 {% endblock page_description %}
 
 {% block content %}
-<h1>User Profile</h1>
-<ul class="list-group">
-    <li class="list-group-item"><strong>Username:</strong> {{ user_info.username }}</li>
-    <li class="list-group-item"><strong>Email:</strong> {{ user_info.email }}</li>
-    <li class="list-group-item"><strong>Bio:</strong> {{ user_info.bio }}</li>
-</ul>
+<div class="profile-container">
+    <img src="{{ user_info.profile_picture.url }}" alt="Profile Picture" class="profile-picture">
+    <h2>{{ user_info.username }}</h2>
+    <p class="profile-bio">{{ user_info.bio }}</p>
+
+    <ul class="list-group profile-details">
+        <li class="list-group-item"><strong>Email:</strong> {{ user_info.email }}</li>
+        <li class="list-group-item"><strong>Joined:</strong> {{ user_info.date_joined|date:"F j, Y" }}</li>
+    </ul>
+
+    <a href="{% url 'profile:edit_profile' %}" class="btn-edit">Edit Profile</a>
+</div>
 {% endblock content %}

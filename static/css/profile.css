@@ -1,0 +1,58 @@
+/* Profil Sayfası Stilleri */
+.profile-container {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.profile-container img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #f0f0f0;
+    margin-bottom: 1rem;
+}
+
+.profile-container h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin: 0.5rem 0;
+}
+
+.profile-container p {
+    color: #777;
+    font-size: 1.2rem;
+}
+
+.list-group {
+    text-align: left;
+    margin-top: 1.5rem;
+}
+
+.list-group-item {
+    font-size: 1.1rem;
+    padding: 0.8rem 1.2rem;
+    background: #f9f9f9;
+    border: none;
+    border-bottom: 1px solid #ddd;
+}
+
+.list-group-item strong {
+    font-weight: bold;
+    color: #555;
+}
+
+.btn-edit {
+    background: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
