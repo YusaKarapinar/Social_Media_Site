@@ -4,12 +4,17 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+
+from HomePage.models import Post
 from .forms import EditProfileForm  # Formu içe aktardık
 
 @login_required(login_url='/login/')
 def profile_page(request):
     user_info = request.user
-    return render(request, 'profile/profile_page.html', {'user_info': user_info})
+    posts = Post.objects.filter(user=user_info).order_by('-created_at')
+    return render(request, 'profile/profile_page.html', {'user_info': user_info, 'posts': posts})
+
+
 
 @login_required(login_url='/login/')
 def edit_profile(request):

@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'HomePage',        # Custom apps
     'ProfilePage',
     'MessagePage',
+        'FeedPage',  # Yeni eklenen uygulama
 ]
 
 MIDDLEWARE = [

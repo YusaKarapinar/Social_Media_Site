@@ -5,5 +5,5 @@ from . import views
 app_name = 'home'  # Ad alanını tanımlayın
 urlpatterns = [
     path('', views.homepage, name='homepage'),
-        path('register/', views.register, name='register'),  # Kayıt sayfası
+    path('register/', views.register, name='register'),  # Kayıt sayfası
 ]

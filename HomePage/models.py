@@ -8,11 +8,10 @@ class CustomUser(AbstractUser):
     bio = models.TextField(max_length=500, blank=True)
     profile_picture = models.ImageField(upload_to='profile_pics/', blank=True)
 
-
 # Gönderi Modeli
 class Post(models.Model):
     user = models.ForeignKey(
-        CustomUser, on_delete=models.CASCADE, related_name='posts'
+        CustomUser, on_delete=models.CASCADE, related_name='homepage_posts'
     )
     content = models.TextField(_("Content"))
     created_at = models.DateTimeField(_("Created At"), auto_now_add=True)
@@ -29,10 +28,10 @@ class Post(models.Model):
 # Yorum Modeli
 class Comment(models.Model):
     post = models.ForeignKey(
-        Post, related_name='comments', on_delete=models.CASCADE
+        Post, related_name='homepage_comments', on_delete=models.CASCADE
     )
     user = models.ForeignKey(
-        CustomUser, on_delete=models.CASCADE, related_name='comments'
+        CustomUser, on_delete=models.CASCADE, related_name='homepage_comments_users'
     )
     text = models.TextField(_("Comment Text"))
     created_at = models.DateTimeField(_("Created At"), auto_now_add=True)

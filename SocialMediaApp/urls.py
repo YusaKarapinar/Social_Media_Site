@@ -11,6 +11,7 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='HomePage/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
     path('profile/', include('ProfilePage.urls', namespace='profile')),  # Profil URL'leri
+        path('feed/', include('FeedPage.urls', namespace='feed')),  # Yeni URL yapısı
 ]
 # Medya dosyalarını sunmak için
 if settings.DEBUG:
